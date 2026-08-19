@@ -50,7 +50,7 @@
   height: 48px; width: auto; display: block;
 }
 .brand-mark__logo--footer {
-  height: 44px;
+  height: 68px;
 }
 @media (max-width: 640px) {
   .brand-mark__logo { height: 38px; }
@@ -99,10 +99,10 @@
 .btn-whatsapp-icon {
   display: inline-flex; align-items: center; justify-content: center;
   width: 40px; height: 40px; flex-shrink: 0; border-radius: var(--radius-md);
-  background: var(--color-brass); color: var(--color-white);
+  background: #25D366; color: var(--color-white);
   transition: background-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
 }
-.btn-whatsapp-icon:hover { background: var(--color-brass-dark); }
+.btn-whatsapp-icon:hover { background: #1EBE5A; }
 .btn-whatsapp-icon:active { transform: translateY(1px); }
 .btn-whatsapp-icon svg { width: 22px; height: 22px; }
 /* ---------- Sticky mobile CTA bar ---------- */

@@ -1,0 +1,81 @@
+/* ============================================================
+   Design tokens — carpetcleaningservice.ie
+   Palette rationale: matches the real brand logo — deep navy
+   (#0A3D62) as the primary brand color, bright blue (#007BFF)
+   as the accent/CTA color, with green (#28A745) and light blue
+   (#4FC3F7) as supporting accents. Variable NAMES are kept from
+   the original token system (--color-green-*, --color-brass)
+   so every component built against them re-themes automatically.
+   ============================================================ */
+:root {
+  /* Color: ink / neutrals */
+  --color-ink: #101B26;          /* near-black navy — body copy, headings */
+  --color-ink-soft: #4A5D71;     /* secondary text */
+  --color-paper: #F3F8FC;        /* pale blue-white background, echoes logo's light blue */
+  --color-paper-raised: #FFFFFF; /* card surfaces */
+  --color-line: #D8E4EE;         /* hairline borders on paper */
+  --color-line-strong: #B9CBDC;
+
+  /* Color: brand (navy, from logo) */
+  --color-green-900: #06263F;
+  --color-green-700: #0A3D62;    /* primary brand navy — matches logo exactly */
+  --color-green-600: #114E7C;
+  --color-green-500: #1C5E90;
+  --color-green-100: #E3EEF7;    /* tint for badges/backgrounds on paper */
+
+  /* Color: accent (bright blue, from logo) */
+  --color-brass: #007BFF;
+  --color-brass-dark: #0062CC;
+  --color-brass-light: #4FC3F7;  /* light blue — matches logo's secondary tone */
+
+  /* Color: utility */
+  --color-white: #FFFFFF;
+  --color-error: #C0392B;
+  --color-focus: #007BFF;
+  --color-accent-green: #28A745; /* secondary accent from logo — used sparingly (checkmarks, success) */
+
+  /* Type families */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Type scale (fluid) */
+  --fs-h1: clamp(2.1rem, 1.6rem + 2.2vw, 3.4rem);
+  --fs-h2: clamp(1.6rem, 1.35rem + 1.2vw, 2.35rem);
+  --fs-h3: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+  --fs-h4: 1.15rem;
+  --fs-lead: clamp(1.05rem, 1rem + 0.3vw, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-micro: 0.75rem;
+
+  /* Spacing scale */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4.5rem;
+  --sp-9: 6.5rem;
+
+  /* Layout */
+  --content-max: 1200px;
+  --content-narrow: 760px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Shadow */
+  --shadow-card: 0 1px 2px rgba(27, 33, 29, 0.04), 0 8px 24px -12px rgba(27, 33, 29, 0.18);
+  --shadow-raised: 0 4px 8px rgba(27, 33, 29, 0.06), 0 16px 40px -16px rgba(27, 33, 29, 0.24);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 150ms;
+  --dur-med: 320ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur-med: 0ms; }
+}

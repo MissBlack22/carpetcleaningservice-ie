@@ -1,0 +1,21 @@
+{
+  "_readme": "Human-readable reference copy of js/business.js (the file actually read at runtime). Keep these in sync when either changes.",
+  "businessName": "Carpet Cleaning Service",
+  "legalName": "TODO_LEGAL_NAME_IF_DIFFERENT",
+  "phoneDisplay": "089 963 2144",
+  "phoneTel": "+353899632144",
+  "email": "contact@carpetcleaningservice.ie",
+  "emailNote": "Domain email, forwarded to carpetcleaningservice.ie@gmail.com at the DNS/email-host level (owner's stated setup, same pattern as their other sites). Set this forwarding up before launch or mail sent to contact@carpetcleaningservice.ie will bounce.",
+  "whatsappNumber": "+353899632144",
+  "whatsappEnabled": true,
+  "serviceArea": "Dublin, Kildare & Wicklow, Ireland",
+  "addressNote": "Service-area business — no address published, matching the current krystalklean.ie/spotless.ie contact page pattern.",
+  "hoursDisplay": "Mon–Fri: 8:00am – 5:00pm",
+  "socialLinks": {
+    "facebook": "TODO_OR_REMOVE",
+    "instagram": "https://www.instagram.com/krystalkleanexpress/",
+    "google": "TODO_GOOGLE_BUSINESS_PROFILE_URL"
+  },
+  "reviewsSourceNote": "4 genuine testimonials from krystalklean.ie now live on the homepage and 3 service pages — see seo/review-migration.md.",
+  "pricingNote": "No current, verified price list available yet — see seo/pricing-review.md. Pricing pages explain price FACTORS only and route to 'Get a Quote' — never publish invented numbers."
+}

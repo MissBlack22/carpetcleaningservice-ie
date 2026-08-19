@@ -1,0 +1,23 @@
+{
+  "_readme": "Settings for the automated blog pipeline (scripts/blog-quality-check.js + the 'daily-blog-carpetcleaningservice' scheduled task). Mirrors the pattern used by the rvfitfinder-site content engine, adapted for a flat static-HTML site with no build step.",
+  "aiProvider": "claude-code-session",
+  "cadence": "1 post per day",
+  "cadenceDecisionNote": "User originally asked for 2/day fully automated. Web research (2026-08-19) showed this risks Google's scaled-content-abuse detection, especially right after this site added 111 templated location pages in the same session, and contradicts this project's own seo/content-strategy.md (guides deliberately capped at 14, not 40+, to avoid padding). Recommended 3x/week; user settled on 1/day as the final decision. See seo/blog-topic-backlog.md decision log.",
+  "automaticPublishing": true,
+  "requireHumanApproval": false,
+  "autoDeployEnabled": false,
+  "autoDeployNote": "2026-08-19: user chose to build, audit, and commit locally every day but hold the live Netlify deploy step until they give an explicit go-ahead (site has never been deployed; email forwarding for contact@carpetcleaningservice.ie is not yet confirmed set up). Flip to true only after the user explicitly confirms they're ready to go live.",
+  "minWordCount": 700,
+  "maxWordCount": 1300,
+  "duplicateTitleSimilarityBlock": true,
+  "topicBacklogFile": "seo/blog-topic-backlog.md",
+  "postsDirectory": "blog/",
+  "requireRealResearchPerPost": true,
+  "bannedContentPatterns": [
+    "fabricated prices or cost figures not sourced from carpet-cleaning-prices-dublin/",
+    "customer testimonials, reviews, or star ratings",
+    "\"years in business\" or founding-date claims",
+    "invented statistics without a cited real source found via WebSearch",
+    "specific named customer stories"
+  ]
+}

@@ -9,6 +9,8 @@
   "autoDeployNote": "2026-08-19: user chose to build, audit, and commit locally every day but hold the live Netlify deploy step until they give an explicit go-ahead (site has never been deployed; email forwarding for contact@carpetcleaningservice.ie is not yet confirmed set up). Flip to true only after the user explicitly confirms they're ready to go live.",
   "minWordCount": 700,
   "maxWordCount": 1300,
+  "requireHeroImage": true,
+  "heroImagePolicy": "Every post must use ONE real photo from assets/photos/business/ (or assets/photos/business/equipment/) placed right after the lead paragraph, plus the same path in og:image. Never a stock photo, never an AI-generated image, never a placeholder. Run `find assets/photos/business -name '*.webp' -not -name '*-800.webp'` to see the current real-photo library and pick whichever genuinely fits the post's specific topic (e.g. a mattress photo for a mattress post, a rug photo for a rug post) rather than defaulting to the same carpet photo every time. If truly nothing in the library fits the topic, use the closest reasonable match rather than skipping the image or inventing one.",
   "duplicateTitleSimilarityBlock": true,
   "topicBacklogFile": "seo/blog-topic-backlog.md",
   "postsDirectory": "blog/",

@@ -51,6 +51,23 @@ else {
   if (canonicalMatch[1] !== expected) failures.push(`canonical "${canonicalMatch[1]}" does not match expected "${expected}"`);
 }
 
+// --- hero image required: a real photo from the business photo library, referenced in <main> and og:image ---
+if (config.requireHeroImage) {
+  const mainImgs = mainMatch ? [...mainMatch[1].matchAll(/<img[^>]+src="([^"]+)"/g)].map(m => m[1]) : [];
+  const realPhotoImgs = mainImgs.filter(src => src.startsWith("/assets/photos/business/"));
+  if (realPhotoImgs.length === 0) {
+    failures.push("no real photo from /assets/photos/business/ found in the post body (stock/AI/placeholder images are not allowed)");
+  } else {
+    for (const src of realPhotoImgs) {
+      const assetPath = path.join(root, src.replace(/^\//, ""));
+      if (!fs.existsSync(assetPath)) failures.push(`hero image referenced but file does not exist on disk: ${src}`);
+    }
+  }
+  const ogImageMatch = html.match(/property="og:image" content="([^"]*)"/);
+  if (!ogImageMatch) failures.push("missing og:image meta tag");
+  else if (!ogImageMatch[1].includes("/assets/photos/business/")) failures.push("og:image is not a real photo from /assets/photos/business/");
+}
+
 // --- H1 present, single ---
 const h1s = [...html.matchAll(/<h1[ >]/g)];
 if (h1s.length === 0) failures.push("missing <h1>");

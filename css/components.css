@@ -14,7 +14,7 @@
 .btn:active { transform: translateY(1px); }
 .btn-primary { background: var(--color-green-700); color: var(--color-white); }
 .btn-primary:hover { background: var(--color-green-600); color: var(--color-white); }
-.btn-brass { background: var(--color-brass); color: var(--color-ink); }
+.btn-brass { background: var(--color-brass); color: var(--color-white); }
 .btn-brass:hover { background: var(--color-brass-dark); color: var(--color-white); }
 .btn-outline { background: transparent; border-color: var(--color-ink); color: var(--color-ink); }
 .btn-outline:hover { background: var(--color-ink); color: var(--color-paper); }

@@ -33,7 +33,7 @@ until an explicit go-ahead, separate from turning the content pipeline itself on
 ## Topics (unchecked = not yet published)
 
 ### Stain & material deep-dives (not covered by the general "common stains" guide)
-- [ ] Red wine on carpet: what actually works vs old wives' tales
+- [x] Red wine on carpet: what actually works vs old wives' tales (published 2026-08-20 as /blog/red-wine-carpet-stains-what-actually-works/)
 - [ ] Coffee and tea stains on carpet and upholstery
 - [ ] Candle wax removal from carpet without damaging fibres
 - [ ] Chewing gum in carpet: safe removal methods

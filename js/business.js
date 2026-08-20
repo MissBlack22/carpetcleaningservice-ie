@@ -20,7 +20,7 @@
     // WhatsApp confirmed by the owner to be the same number as phoneTel above (2026-08-19).
     whatsappEnabled: true,
     whatsappTel: "+353899632144",
-    whatsappLink: "https://wa.me/+353899632144",
+    whatsappLink: "https://wa.me/353899632144?text=Hi%2C%20I%27d%20like%20a%20free%20carpet%20cleaning%20quote",
     // Confirmed by the owner (2026-08-19): "8 to 5, normal hours" — standard Mon-Fri business day.
     hoursDisplay: "Mon–Fri: 8:00am – 5:00pm",
     // Confirmed by the owner (2026-08-19): service area genuinely covers Dublin, Kildare and Wicklow.

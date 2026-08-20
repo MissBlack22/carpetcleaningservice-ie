@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /BUILD-REPORT.md
+Disallow: /READY-FOR-NETLIFY.md
+Disallow: /sample_urls.txt
+Disallow: /loc_names.txt
+Disallow: /kildare_names.txt
+Disallow: /seo/
+Disallow: /scripts/
 
 Sitemap: https://carpetcleaningservice.ie/sitemap.xml

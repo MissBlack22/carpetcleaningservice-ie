@@ -7,3 +7,58 @@
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+
+# Versioned via ?v= query strings (see css/js <link>/<script> tags) — safe to cache
+# aggressively since a content change always ships with a new version number.
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Canonicalize the large generated location-page networks to a trailing slash —
+# Netlify's default pretty-URL serving returns both /locations/rathmines and
+# /locations/rathmines/ as 200 with identical content, which is a duplicate-URL
+# risk at this page count (160+ location folders). Every internal link, the
+# sitemap, and every canonical tag already use the trailing-slash form; this
+# makes the server agree instead of relying on rel=canonical alone.
+[[redirects]]
+  from = "/locations/:slug"
+  to = "/locations/:slug/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/carpet-cleaning-kildare/:slug"
+  to = "/carpet-cleaning-kildare/:slug/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/carpet-cleaning-wicklow/:slug"
+  to = "/carpet-cleaning-wicklow/:slug/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/:slug"
+  to = "/blog/:slug/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/:slug"
+  to = "/guides/:slug/"
+  status = 301
+  force = true

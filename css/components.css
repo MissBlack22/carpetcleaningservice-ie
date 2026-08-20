@@ -309,17 +309,17 @@ a.swatch-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-rais
 .photo-grid__caption { padding: var(--sp-3) var(--sp-4); font-size: var(--fs-small); color: var(--color-ink-soft); }
 
 /* ---------- Footer ---------- */
-.site-footer { background: #0E3D6B; color: rgba(255,255,255,0.75); padding-block: var(--sp-8) var(--sp-6); }
+.site-footer { background: rgb(241, 238, 228); color: var(--color-ink-soft); padding-block: var(--sp-8) var(--sp-6); }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--sp-6); max-width: var(--content-max); margin-inline: auto; padding-inline: var(--sp-5); }
 @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
-.site-footer h4 { color: var(--color-white); font-size: var(--fs-small); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--sp-3); }
+.site-footer h4 { color: var(--color-ink); font-size: var(--fs-small); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--sp-3); }
 .site-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
-.site-footer a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: var(--fs-small); }
-.site-footer a:hover { color: var(--color-brass-light); }
+.site-footer a { color: var(--color-ink-soft); text-decoration: none; font-size: var(--fs-small); }
+.site-footer a:hover { color: var(--color-brass); }
 .footer-bottom {
   max-width: var(--content-max); margin-inline: auto; padding-inline: var(--sp-5);
-  margin-top: var(--sp-7); padding-top: var(--sp-5); border-top: 1px solid rgba(255,255,255,0.12);
+  margin-top: var(--sp-7); padding-top: var(--sp-5); border-top: 1px solid var(--color-line-strong);
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--sp-3);
-  font-size: var(--fs-micro); color: rgba(255,255,255,0.55);
+  font-size: var(--fs-micro); color: var(--color-ink-soft);
 }

@@ -47,13 +47,13 @@
   background: repeating-linear-gradient(115deg, var(--color-green-700) 0 4px, var(--color-brass) 4px 5px, var(--color-green-700) 5px 9px);
 }
 .brand-mark__logo {
-  height: 48px; width: auto; display: block;
+  height: 96px; width: auto; display: block;
 }
 .brand-mark__logo--footer {
-  height: 68px;
+  height: 204px;
 }
 @media (max-width: 640px) {
-  .brand-mark__logo { height: 38px; }
+  .brand-mark__logo { height: 76px; }
 }
 .mobile-menu__top .brand-mark__logo { height: 40px; }
 .main-nav { display: flex; align-items: center; gap: var(--sp-2); }
@@ -309,7 +309,7 @@ a.swatch-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-rais
 .photo-grid__caption { padding: var(--sp-3) var(--sp-4); font-size: var(--fs-small); color: var(--color-ink-soft); }
 
 /* ---------- Footer ---------- */
-.site-footer { background: var(--color-ink); color: rgba(255,255,255,0.75); padding-block: var(--sp-8) var(--sp-6); }
+.site-footer { background: #0E3D6B; color: rgba(255,255,255,0.75); padding-block: var(--sp-8) var(--sp-6); }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--sp-6); max-width: var(--content-max); margin-inline: auto; padding-inline: var(--sp-5); }
 @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }

@@ -1,11 +1,12 @@
 // Flags location pages that look thin or near-duplicate: low word count,
-// or body text that's >90% identical to another location page (after
-// stripping the area name) — a sign of templated/spun content.
+// or body text that's heavily overlapping with another location page
+// (after stripping the area name) — a sign of templated/spun content.
+// Scans every area-page directory, not just /locations/.
 const fs = require("fs");
 const path = require("path");
 
 const root = path.join(__dirname, "..");
-const locDir = path.join(root, "locations");
+const baseDirs = ["locations", "carpet-cleaning-kildare", "carpet-cleaning-wicklow"];
 
 function textOf(html) {
   const main = html.match(/<main[\s\S]*?<\/main>/);
@@ -19,22 +20,25 @@ function textOf(html) {
   return body;
 }
 
-const dirs = fs.readdirSync(locDir, { withFileTypes: true }).filter((d) => d.isDirectory());
 const results = [];
-
-for (const d of dirs) {
-  const file = path.join(locDir, d.name, "index.html");
-  if (!fs.existsSync(file)) continue;
-  const html = fs.readFileSync(file, "utf8");
-  const text = textOf(html);
-  const words = text.split(/\s+/).filter(Boolean).length;
-  results.push({ slug: d.name, words, normText: text.replace(new RegExp(d.name, "gi"), "AREA") });
+for (const base of baseDirs) {
+  const baseDir = path.join(root, base);
+  if (!fs.existsSync(baseDir)) continue;
+  const dirs = fs.readdirSync(baseDir, { withFileTypes: true }).filter((d) => d.isDirectory());
+  for (const d of dirs) {
+    const file = path.join(baseDir, d.name, "index.html");
+    if (!fs.existsSync(file)) continue;
+    const html = fs.readFileSync(file, "utf8");
+    const text = textOf(html);
+    const words = text.split(/\s+/).filter(Boolean).length;
+    results.push({ label: `${base}/${d.name}`, words, normText: text.replace(new RegExp(d.name, "gi"), "AREA") });
+  }
 }
 
 results.sort((a, b) => a.words - b.words);
-console.log(`Total location pages: ${results.length}`);
+console.log(`Total area pages scanned: ${results.length}`);
 console.log(`\nBottom 20 by word count:`);
-results.slice(0, 20).forEach((r) => console.log(`  ${r.words}w  /locations/${r.slug}/`));
+results.slice(0, 20).forEach((r) => console.log(`  ${r.words}w  /${r.label}/`));
 
 console.log(`\nWord count buckets:`);
 const buckets = { "<300": 0, "300-600": 0, "600-1000": 0, "1000+": 0 };
@@ -46,8 +50,6 @@ results.forEach((r) => {
 });
 console.log(buckets);
 
-// Near-duplicate check: compare normalized text similarity via simple hash
-// of shingles (crude but catches spun/templated pairs).
 function shingles(text, n = 8) {
   const words = text.split(" ");
   const set = new Set();
@@ -60,13 +62,14 @@ function jaccard(a, b) {
   return inter / (a.size + b.size - inter || 1);
 }
 
-const shingleSets = results.map((r) => ({ slug: r.slug, s: shingles(r.normText) }));
+const shingleSets = results.map((r) => ({ label: r.label, s: shingles(r.normText) }));
 const dupes = [];
 for (let i = 0; i < shingleSets.length; i++) {
   for (let j = i + 1; j < shingleSets.length; j++) {
     const sim = jaccard(shingleSets[i].s, shingleSets[j].s);
-    if (sim > 0.6) dupes.push(`${shingleSets[i].slug} <-> ${shingleSets[j].slug}: ${(sim * 100).toFixed(0)}% similar`);
+    if (sim > 0.4) dupes.push({ a: shingleSets[i].label, b: shingleSets[j].label, sim });
   }
 }
-console.log(`\nNear-duplicate pairs (>60% shingle overlap): ${dupes.length}`);
-dupes.slice(0, 30).forEach((d) => console.log("  " + d));
+dupes.sort((a, b) => b.sim - a.sim);
+console.log(`\nNear-duplicate pairs (>40% shingle overlap): ${dupes.length}`);
+dupes.forEach((d) => console.log(`  ${d.a} <-> ${d.b}: ${(d.sim * 100).toFixed(0)}% similar`));

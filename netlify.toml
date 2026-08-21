@@ -27,38 +27,12 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Canonicalize the large generated location-page networks to a trailing slash —
-# Netlify's default pretty-URL serving returns both /locations/rathmines and
-# /locations/rathmines/ as 200 with identical content, which is a duplicate-URL
-# risk at this page count (160+ location folders). Every internal link, the
-# sitemap, and every canonical tag already use the trailing-slash form; this
-# makes the server agree instead of relying on rel=canonical alone.
-[[redirects]]
-  from = "/locations/:slug"
-  to = "/locations/:slug/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/carpet-cleaning-kildare/:slug"
-  to = "/carpet-cleaning-kildare/:slug/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/carpet-cleaning-wicklow/:slug"
-  to = "/carpet-cleaning-wicklow/:slug/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/blog/:slug"
-  to = "/blog/:slug/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/guides/:slug"
-  to = "/guides/:slug/"
-  status = 301
-  force = true
+# NOTE: a previous trailing-slash canonicalization redirect here
+# (/locations/:slug -> /locations/:slug/, and the same for
+# carpet-cleaning-kildare/wicklow, blog, and guides) caused an infinite
+# redirect loop in production: Netlify's :slug placeholder also matched the
+# already-slashed URL, so the rule redirected /locations/ballsbridge/ to
+# itself forever (ERR_TOO_MANY_REDIRECTS). Removed. Netlify's default
+# pretty-URL serving already returns both slash forms as 200 with identical
+# content, and every page's rel=canonical (trailing-slash form) already
+# handles the duplicate-URL SEO concern without the loop risk.

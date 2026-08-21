@@ -1,6 +1,16 @@
 [build]
   publish = "."
 
+# Johnstown's own location page was a near-verbatim duplicate of Newcastle's
+# (same rural southwest-Dublin cluster, template not differentiated) —
+# consolidated into Newcastle rather than risk duplicate-content penalties
+# on both. Exact literal path, no placeholder, so no redirect-loop risk.
+[[redirects]]
+  from = "/locations/johnstown/"
+  to = "/locations/newcastle/"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]

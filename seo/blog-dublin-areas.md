@@ -19,7 +19,7 @@ Total areas: 160 (all 160 now have /locations/{slug}/ pages, built 2026-08-19)
 ## Areas
 
 - [x] Adamstown (slug: adamstown, HAS location page -> link to /locations/adamstown/) (published 2026-08-20 in /blog/red-wine-carpet-stains-what-actually-works/)
-- [ ] Artane (slug: artane, HAS location page -> link to /locations/artane/)
+- [x] Artane (slug: artane, HAS location page -> link to /locations/artane/) (published 2026-08-21 in /blog/coffee-tea-stains-carpet-upholstery/)
 - [ ] Ashtown (slug: ashtown, HAS location page -> link to /locations/ashtown/)
 - [ ] Athgoe (slug: athgoe, HAS location page -> link to /locations/athgoe/)
 - [ ] Balbriggan (slug: balbriggan, HAS location page -> link to /locations/balbriggan/)
